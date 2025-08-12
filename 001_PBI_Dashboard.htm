@@ -1,257 +1,595 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)https://holtzy.github.io/Crypto-Arbitrage/CONTENT/public_API.html -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raúl Pérez - Data Scientist Portfolio</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  
-<meta name="generator" content="pandoc">
-<style>
-.mytitle{
-  text-transform: uppercase;
-  font-family: 'Montserrat';
-  font-size: 200%;
-  font-weight: 500;
-  letter-spacing: 4px;
-  }   
-</style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
 
+        /* Header moderno */
+        .modern-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Navegación moderna */
+        .modern-nav {
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 1rem 1.5rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: var(--bg-light);
+        }
+
+        /* Dashboard container moderno */
+        .dashboard-container {
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .dashboard-header h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Secciones modernas */
+        .modern-section {
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* Cards modernas */
+        .modern-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            height: 100%;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Badges modernos */
+        .modern-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+
+        /* Stats modernas */
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Footer moderno */
+        .modern-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1rem;
+            }
+            
+            .modern-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 
-
 <body>
-<div class="myheader" style="text-align: center;">
-  <br>
-  <div style="text-align: left; margin-left: 5%">
-    <a href="index.html">HOME</a>
-</div>
-<iframe title="FIRMS_48H_WORLD" width="100%" height="850" src="https://app.powerbi.com/view?r=eyJrIjoiN2UyNjBjN2ItN2E3ZS00NzNjLTkwYWItMzljZjQyMjgxMmFmIiwidCI6IjU2NTgyYjllLTg4MjQtNDlkMC1hNjY1LWNkMzI4YzBlMDA0YSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+    <!-- Header Moderno -->
+    <header class="modern-header">
+        <div class="container">
+            <div class="header-content text-center">
+                <h1 class="header-title">Raúl Pérez</h1>
+                <p class="header-subtitle">Data Scientist & Geospatial Analyst</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#dashboard" class="btn btn-light btn-lg">Ver Dashboard</a>
+                    <a href="#about" class="btn btn-outline-light btn-lg">Sobre Mí</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Navegación -->
+    <nav class="modern-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre Mí</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Dashboard Principal -->
+    <section id="dashboard" class="container my-5">
+        <div class="dashboard-container fade-in">
+            <div class="dashboard-header">
+                <h3><i class="fas fa-fire me-2"></i>Dashboard de Monitoreo de Incendios Forestales</h3>
+                <p class="mb-0">Datos en tiempo real de NASA FIRMS - Últimas 48 horas</p>
+            </div>
+            <div class="p-0">
+                <iframe 
+                    title="FIRMS_48H_WORLD" 
+                    width="100%" 
+                    height="700" 
+                    src="https://app.powerbi.com/view?r=eyJrIjoiN2UyNjBjN2ItN2E3ZS00NzNjLTkwYWItMzljZjQyMjgxMmFmIiwidCI6IjU2NTgyYjllLTg4MjQtNDlkMC1hNjY1LWNkMzI4YzBlMDA0YSIsImMiOjR9" 
+                    frameborder="0" 
+                    allowFullScreen="true"
+                    style="border-radius: 0 0 16px 16px;">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
-<title></title>
+    <!-- Sobre Mí -->
+    <section id="about" class="container my-5">
+        <div class="modern-section fade-in">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <p class="lead mb-4">
+                        Especialista en ciencia de datos con enfoque en análisis geoespacial y monitoreo ambiental. 
+                        Desarrollo soluciones automatizadas para el procesamiento de datos satelitales y la 
+                        visualización de información geográfica para la toma de decisiones estratégicas.
+                    </p>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5 class="mb-3"><i class="fas fa-code me-2 text-primary"></i>Tecnologías</h5>
+                            <div class="mb-3">
+                                <span class="modern-badge">Python</span>
+                                <span class="modern-badge">DuckDB</span>
+                                <span class="modern-badge">Power BI</span>
+                                <span class="modern-badge">SQL</span>
+                                <span class="modern-badge">Pandas</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-3"><i class="fas fa-satellite me-2 text-primary"></i>Especialidades</h5>
+                            <div class="mb-3">
+                                <span class="modern-badge">Geospatial Analysis</span>
+                                <span class="modern-badge">Remote Sensing</span>
+                                <span class="modern-badge">Data Visualization</span>
+                                <span class="modern-badge">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="modern-card">
+                        <div class="mb-3">
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-user fa-3x text-white"></i>
+                            </div>
+                        </div>
+                        <h5>Raúl Pérez</h5>
+                        <p class="text-muted">Data Scientist</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="https://www.linkedin.com/in/raulperezastorga" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/rauledop1" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script type="text/javascript" async="" src="./001_PBI_Dashboard_files/analytics.js"></script><script type="text/javascript" async="" src="./001_PBI_Dashboard_files/js"></script><script src="./001_PBI_Dashboard_files/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="./001_PBI_Dashboard_files/lumen.min.css" rel="stylesheet">
-<script src="./001_PBI_Dashboard_files/bootstrap.min.js"></script>
-<script src="./001_PBI_Dashboard_files/html5shiv.min.js"></script>
-<script src="./001_PBI_Dashboard_files/respond.min.js"></script>
-<script src="./001_PBI_Dashboard_files/tabsets.js"></script>
-<script src="./001_PBI_Dashboard_files/codefolding.js"></script>
-<link href="./001_PBI_Dashboard_files/pagedtable.css" rel="stylesheet">
-<script src="./001_PBI_Dashboard_files/pagedtable.js"></script>
+    <!-- Estadísticas -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">2014</div>
+                    <div class="stat-label">Tesis Publicada</div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">48h</div>
+                    <div class="stat-label">Datos en Tiempo Real</div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">CONAF</div>
+                    <div class="stat-label">Publicación Científica</div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Automatizado</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Proyectos -->
+    <section id="projects" class="container my-5">
+        <div class="modern-section fade-in">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h5>Dashboard de Incendios</h5>
+                        <p class="text-muted">
+                            Sistema automatizado para monitoreo de incendios forestales usando datos de NASA FIRMS 
+                            con procesamiento en tiempo real.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Python</span>
+                            <span class="badge bg-success">DuckDB</span>
+                            <span class="badge bg-warning">Power BI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h5>Árboles de Decisión</h5>
+                        <p class="text-muted">
+                            Implementación de algoritmos de machine learning para análisis predictivo 
+                            y clasificación de datos ambientales.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Scikit-learn</span>
+                            <span class="badge bg-info">Jupyter</span>
+                            <span class="badge bg-secondary">ML</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="fas fa-mask"></i>
+                        </div>
+                        <h5>Generador de Máscaras</h5>
+                        <p class="text-muted">
+                            Herramienta automatizada para generación de máscaras usando técnicas 
+                            avanzadas de visión por computadora.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-danger">OpenCV</span>
+                            <span class="badge bg-primary">Computer Vision</span>
+                            <span class="badge bg-dark">AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-div.sourceCode {
-  overflow-x: visible;
-}
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+    <!-- Descripción Técnica -->
+    <section class="container my-5">
+        <div class="modern-section fade-in">
+            <h2 class="section-title">Descripción Técnica del Proyecto</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>
+                        Este proyecto se enfoca en automatizar un dashboard espacial en <strong>Power BI PRO</strong>, 
+                        integrando datos de incendios en tiempo real del sistema <strong>FIRMS</strong> (Fire Information 
+                        for Resource Management System) de la NASA. Utilizo Python y <strong>DuckDB</strong> para el 
+                        procesamiento y transformación de datos, así como para la gestión de datos espaciales de 
+                        ocurrencias de incendios y límites administrativos.
+                    </p>
+                    
+                    <p>
+                        El pipeline de datos involucra la obtención de archivos CSV con detecciones de incendios, 
+                        como <code>MODIS_C6_1_South_America_48h.csv</code> y <code>MODIS_C6_1_Central_America_48h.csv</code>. 
+                        Los datos incluyen observaciones satelitales y timestamps de adquisición, mientras que las 
+                        coordenadas espaciales se transforman en puntos geométricos usando funciones espaciales de 
+                        DuckDB como <code>ST_Point()</code> y <code>ST_Intersects()</code>.
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="modern-card">
+                        <h6><i class="fas fa-code me-2"></i>Código del Proyecto</h6>
+                        <p class="small text-muted mb-3">
+                            Explora el notebook completo con el código de implementación:
+                        </p>
+                        <a href="https://nbviewer.jupyter.org/github/rauledop1/my-portfolio/blob/fd58a8c371422dae9a791af5c7da586bbcbaaeff/0001_dashboard_hotspot.ipynb" 
+                           class="btn btn-primary btn-sm w-100" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i>Ver Notebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer id="contact" class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <h4 class="mb-3">¿Interesado en colaborar?</h4>
+                <p class="mb-4">
+                    Especialista en análisis de datos geoespaciales y desarrollo de dashboards automatizados.<br>
+                    Disponible para proyectos de monitoreo ambiental y visualización de datos.
+                </p>
+                
+                <div class="social-links">
+                    <a href="mailto:tu-email@ejemplo.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/raulperezastorga" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/rauledop1" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                
+                <hr class="my-4" style="border-color: #374151;">
+                <p class="text-muted">
+                    © 2024 Raúl Pérez. Desarrollado con datos de 
+                    <a href="https://firms.modaps.eosdis.nasa.gov/active_fire/MODIS" class="text-primary">NASA FIRMS</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Smooth scrolling -->
+    <script>
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-<link rel="stylesheet" href="./001_PBI_Dashboard_files/style.css" type="text/css">
+        // Animación de fade-in al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-
-
-
-<style type="text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
-
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
-
-
-
-
-
-
-<div class="fluid-row" id="header">
-
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Show Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="001_PBI_Dashboard.htm">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="001_PBI_Dashboard.htm">Hide All Code</a></li>
-</ul>
-</div>
-
-
-</div>
-<div class="mycontent">
-<h1 id="public-exchange-api">Automated Power BI Dashboard with Python and DuckDB for Fire Monitoring</h1>
-<hr>
-<p>This project focuses on automating a spatial dashboard in <code>Power BI PRO</code>, integrating real-time fire data from the <a href="https://firms.modaps.eosdis.nasa.gov/active_fire/MODIS"> FIRMS</a> (Fire Information for Resource Management System) satellites. I used Python and <a href="https://duckdb.org/">DuckDB</a> for data processing and transformation, and spatial data management for fire occurrences and administrative boundaries.</p>
-<p><br></p>
-<p>The data pipeline involves fetching CSV files with fire detections, such as <code>MODIS_C6_1_South_America_48h.csv</code> and <code>MODIS_C6_1_Central_America_48h.csv</code>. The fire data includes satellite observations and acquisition timestamps, while the spatial coordinates (latitude and longitude) are transformed into geometric points. These data are processed with DuckDB’s SQL capabilities, including spatial functions such as <code>ST_Point()</code> and <code>ST_Intersects()</code>.</p>
-<p><br></p>
-<p>The fire data is then joined with country-level administrative boundaries, sourced from Harvard’s administrative dataset (Level 2), allowing for the identification of the exact regions where fires are occurring. By using Python, DuckDB, and SQL, the entire data preparation workflow is automated, and the resulting dataset is exported as a CSV file for seamless integration into <a href="https://www.microsoft.com/es-es/power-platform/products/power-bi">Power BI.</a></p>
-<p><br></p>
-<p>In Power BI, the dashboard visualizes fire occurrences over the last 48 hours, allowing users to filter by satellite, day/night detection, and geographic area (down to Level 2 administrative divisions). This automation ensures that the dashboard is updated in real time, providing actionable insights for monitoring fire activity across different regions.
-</a></p>
-</ul>
-<h1 id="do-it-programming">Do it programming</h1>
-<hr>
-<p>It is totally possible to automate the data processing and visualization in a similar way. This is useful because it allows the fire detection data to be updated and processed automatically every couple of hours.</p>
-<p>Here is an example using Python and DuckDB to retrieve recent fire hotspot data from MODIS FIRMS, process the spatial information, and join it with administrative boundaries, all in a few lines of code:</p>
-<div class="sourceCode"><div class="row"><div class="col-md-12"><button type="button" class="btn btn-default btn-xs code-folding-btn pull-right" data-toggle="collapse" data-target="#rcode-643E0F361" aria-expanded="true" aria-controls="rcode-643E0F361"><span>Hide</span></button></div></div><div class="collapse r-code-collapse in" id="rcode-643E0F361"><pre class="sourceCode r"><code class="sourceCode r">
-<body>
-  <h4>Script</h4>
-  <iframe
-      src="https://nbviewer.jupyter.org/github/rauledop1/my-portfolio/blob/fd58a8c371422dae9a791af5c7da586bbcbaaeff/0001_dashboard_hotspot.ipynb"
-      width="100%" 
-      height="600px">
-  </iframe>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
-&nbsp;
-<hr>
-<p style="text-align: center;">A work by <a href="https://github.com/rauledop1/">Raul Perez</a>  using  <a href="https://firms.modaps.eosdis.nasa.gov/active_fire/MODIS">FIRMS</a></p>
-
-<!-- Add icon library -->
-<link rel="stylesheet" href="./001_PBI_Dashboard_files/font-awesome.min.css">
-
-<!-- Add font awesome icons -->
-<p style="text-align: center;">
-	<a href="" class="fa fa-twitter"></a>
-	<a href="https://www.linkedin.com/in/raulperezastorga" class="fa fa-linkedin"></a>
-	<a href="https://github.com/rauledop/" class="fa fa-github"></a>
-</p>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="./001_PBI_Dashboard_files/js(1)"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-79254642-3');
-</script>
-
-
-&nbsp;
-
-
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-</script>
-
-</body>
-
 </html>
